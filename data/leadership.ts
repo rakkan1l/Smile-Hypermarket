@@ -14,7 +14,7 @@ export const leadership: Leader[] = [
     id: "chairman",
     name: "Muhammad Ali",
     position: "Chairman",
-    image: images.portraitA,
+    image: "/images/leadership/muhammad-ali.jpg",
     summary:
       "The founding vision behind Smile — a belief that a neighbourhood store can be run with the discipline of a great retailer and the warmth of a family home.",
     biography:

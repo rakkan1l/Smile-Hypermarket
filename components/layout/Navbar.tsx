@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -73,9 +74,17 @@ export function Navbar() {
                       {active && (
                         <motion.span
                           layoutId="nav-indicator"
-                          className="absolute -bottom-0.5 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-smile-green"
+                          className="absolute -bottom-1 left-1/2 -translate-x-1/2"
                           transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                        />
+                        >
+                          <Image
+                            src="/images/cart-indicator.png"
+                            alt=""
+                            width={20}
+                            height={16}
+                            className="h-4 w-auto"
+                          />
+                        </motion.span>
                       )}
                     </Link>
                   </li>

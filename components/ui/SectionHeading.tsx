@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 export function Eyebrow({ children, tone = "green", className }: { children: ReactNode; tone?: "green" | "blue" | "light"; className?: string }) {
-  const dot = tone === "blue" ? "bg-smile-blue" : tone === "light" ? "bg-white" : "bg-smile-green";
+  const dot = tone === "blue" ? "bg-smile-blue" : tone === "light" ? "bg-[#ffffff]" : "bg-smile-green";
   const text = tone === "light" ? "text-white/85" : "text-ink-soft";
   return (
     <p className={cn("inline-flex items-center gap-2.5 font-ui text-xs uppercase tracking-[0.22em]", text, className)}>

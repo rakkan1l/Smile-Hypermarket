@@ -61,9 +61,22 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/**
+ * Applies the saved theme before first paint so there is no flash of the
+ * wrong palette. Falls back to the operating system preference.
+ */
+const themeScript = `(function(){try{var t=localStorage.getItem("smile-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}})();`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${redHatDisplay.variable} ${redHatText.variable} ${poppins.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${redHatDisplay.variable} ${redHatText.variable} ${poppins.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <Navbar />
         <main id="main">{children}</main>

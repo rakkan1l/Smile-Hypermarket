@@ -15,7 +15,7 @@ const cards = [
     gradient: "from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]",
     iconBg: "bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]",
     btnClass: "border-[#ee2a7b] text-[#ee2a7b] hover:bg-[#ee2a7b] hover:text-white",
-    cardBg: "bg-pink-50",
+    cardBg: "bg-pink-50 dark:bg-[#2a1620]",
   },
   {
     platform: "Facebook",
@@ -26,7 +26,7 @@ const cards = [
     gradient: "from-[#1877f2] to-[#0a5dc2]",
     iconBg: "bg-[#1877f2]",
     btnClass: "border-[#1877f2] text-[#1877f2] hover:bg-[#1877f2] hover:text-white",
-    cardBg: "bg-blue-50",
+    cardBg: "bg-blue-50 dark:bg-[#12222e]",
   },
   {
     platform: "WhatsApp Channel",
@@ -37,7 +37,7 @@ const cards = [
     gradient: "from-[#25d366] to-[#128c7e]",
     iconBg: "bg-[#25d366]",
     btnClass: "border-[#25d366] text-[#1faa59] hover:bg-[#25d366] hover:text-white",
-    cardBg: "bg-green-50",
+    cardBg: "bg-green-50 dark:bg-[#15241a]",
   },
 ];
 

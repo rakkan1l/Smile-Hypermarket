@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { mainNav, site } from "@/data/site";
+import { mainNav } from "@/data/site";
 import { cn } from "@/lib/cn";
 import { isActivePath } from "@/lib/nav";
 import { ButtonLink } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
+import { ThemeToggle } from "./ThemeToggle";
 
 /** Routes that open with a full-bleed dark image, where the navbar starts transparent. */
 const IMAGE_HERO_ROUTES = [/^\/$/, /^\/about$/, /^\/careers$/, /^\/outlets\/[^/]+$/];
@@ -46,7 +47,7 @@ export function Navbar() {
           "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-[var(--ease-premium)]",
           transparent
             ? "border-b border-transparent bg-transparent"
-            : "border-b border-line bg-white/85 shadow-[0_6px_24px_-18px_rgba(21,24,29,0.25)] backdrop-blur-xl",
+            : "border-b border-line bg-white/85 dark:bg-[rgba(15,18,22,0.85)] shadow-[0_6px_24px_-18px_rgba(21,24,29,0.25)] backdrop-blur-xl",
         )}
       >
         <div className="mx-auto flex h-[72px] max-w-[1320px] items-center justify-between gap-6 px-4 sm:px-8 lg:h-20 lg:px-12">
@@ -76,6 +77,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle transparent={transparent} />
             <ButtonLink
               href="/outlets"
               variant={transparent ? "light" : "primary"}

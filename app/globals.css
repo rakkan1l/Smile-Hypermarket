@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark variant, driven by data-theme on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* ------------------------------------------------------------------
    Smile Hypermarket design tokens
    Change brand colours here — every component reads from these.
@@ -29,6 +32,34 @@
 
   --shadow-soft: 0 1px 2px rgba(21, 24, 29, 0.04), 0 8px 24px -12px rgba(21, 24, 29, 0.12);
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------
+   Dark theme — same tokens, re-pointed. Applied by the theme toggle
+   via data-theme="dark" on <html>.
+------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  --smile-blue: #3aa8cd; /* lifted for contrast on dark surfaces */
+  --smile-blue-dark: #6cc4e0;
+  --smile-green: #8ed13f;
+  --smile-green-dark: #a8e063;
+
+  --background: #0f1216;
+  --off-white: #161a20;
+  --soft-grey: #1e242c;
+  --light-blue: #14262e;
+  --light-green: #1a2416;
+
+  --text-primary: #eef1f4;
+  --text-secondary: #a6aeb9;
+  --text-muted: #7b838f;
+
+  --border: #262c35;
+  --border-strong: #353d48;
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -112,6 +143,13 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+}
+
+/* Solid white surfaces (cards, panels, sheets) follow the theme.
+   Translucent variants like bg-white/85 and bg-white/10 are untouched,
+   so overlays on hero imagery keep working. */
+:root[data-theme="dark"] .bg-white {
+  background-color: var(--off-white);
 }
 
 @layer utilities {

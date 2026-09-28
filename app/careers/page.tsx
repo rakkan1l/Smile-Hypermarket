@@ -34,7 +34,7 @@ export default function CareersPage() {
 
       <section id="positions" aria-labelledby="positions-heading" className="scroll-mt-24 bg-off-white py-20 sm:py-28">
         <Container>
-          <SectionHeading id="positions-heading" eyebrow="Vacancies" title="Open positions" className="mb-10" />
+          <SectionHeading id="positions-heading" eyebrow="Vacancies" title="Career Opportunities" className="mb-10" />
           <JobsList jobs={openJobs} />
         </Container>
       </section>

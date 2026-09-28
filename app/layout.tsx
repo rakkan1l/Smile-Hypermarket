@@ -63,9 +63,10 @@ export const viewport: Viewport = {
 
 /**
  * Applies the saved theme before first paint so there is no flash of the
- * wrong palette. Falls back to the operating system preference.
+ * wrong palette. Light is the default — dark is opt-in via the toggle, so
+ * a visitor whose system is set to dark still sees the light site first.
  */
-const themeScript = `(function(){try{var t=localStorage.getItem("smile-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem("smile-theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}})();`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

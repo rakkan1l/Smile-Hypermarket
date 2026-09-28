@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   title: { absolute: "Smile Hypermarket | Kannur & UAE" },
 };
 
-// Offer statuses are date-based, so refresh the page daily.
-export const revalidate = 86400;
-
 export default function HomePage() {
   return (
     <>

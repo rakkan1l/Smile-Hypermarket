@@ -11,7 +11,7 @@ import { FormSuccess } from "@/components/forms/FormSuccess";
 import { useFormState } from "@/components/forms/useFormState";
 
 type Key = "fullName" | "phone" | "email" | "outlet" | "subject" | "message";
-const SUBJECTS = ["General enquiry", "Product availability", "Offers & promotions", "Feedback", "Supplier / partnership", "Other"];
+const SUBJECTS = ["General enquiry", "Product availability", "Feedback", "Supplier / partnership", "Other"];
 
 export function ContactForm({ outletSlug = "" }: { outletSlug?: string }) {
   const { field, errors, handleSubmit, status, submitError, setValues, reset } = useFormState<Key>({

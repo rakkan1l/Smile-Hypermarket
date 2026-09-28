@@ -1,15 +1,9 @@
 "use client";
 
-import { Bell, ShoppingBag, Gift, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { site } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
-
-const features = [
-  { Icon: Bell, label: "Latest Offers", sub: "Never miss a deal" },
-  { Icon: ShoppingBag, label: "New Outlets", sub: "Be the first to know" },
-  { Icon: Gift, label: "Exclusive Updates", sub: "Straight to your phone" },
-];
 
 const cards = [
   {
@@ -71,20 +65,6 @@ export function SocialSection() {
               Be the first to hear about offers, new outlets and everything happening across the Smile family.
             </p>
 
-            {/* Feature pills */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              {features.map(({ Icon, label, sub }) => (
-                <div key={label} className="flex items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3 shadow-sm">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-light-blue text-smile-blue">
-                    <Icon className="size-4" strokeWidth={1.6} />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium leading-none text-ink">{label}</p>
-                    <p className="mt-0.5 text-xs text-ink-muted">{sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right: decorative phones visual */}

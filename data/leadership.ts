@@ -80,7 +80,7 @@ export const leadership: Leader[] = [
     id: "managing-partner-2",
     name: "Rajeev Puthiyaveettil",
     position: "Managing Partner",
-    image: "",
+    image: "/images/leadership/rajeev-puthiyaveettil.jpg",
     summary:
       "Focused on finance, governance and the long-term strength of the Smile group as it grows across borders.",
     biography:

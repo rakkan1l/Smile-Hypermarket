@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { mainNav, site } from "@/data/site";
-import { whatsappHref } from "@/lib/links";
 import { cn } from "@/lib/cn";
 import { isActivePath } from "@/lib/nav";
 import { ButtonLink } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 
@@ -78,18 +76,6 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={whatsappHref(site.whatsapp)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat with Smile on WhatsApp"
-              className={cn(
-                "hidden size-11 items-center justify-center rounded-full border transition-colors duration-300 lg:inline-flex",
-                transparent ? "border-white/30 text-white hover:bg-white/10" : "border-line text-ink-soft hover:border-smile-green hover:text-smile-green",
-              )}
-            >
-              <WhatsAppIcon className="size-[18px]" />
-            </a>
             <ButtonLink
               href="/outlets"
               variant={transparent ? "light" : "primary"}

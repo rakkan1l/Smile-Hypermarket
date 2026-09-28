@@ -16,7 +16,7 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-12%"]);
 
   return (
-    <section ref={ref} aria-label="Welcome to Smile Hypermarket" className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink h-[92svh] lg:h-[100svh]">
+    <section ref={ref} aria-label="Welcome to Smile Hypermarket" className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink-fixed h-[92svh] lg:h-[100svh]">
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <Image
           src={images.hero}

@@ -23,6 +23,11 @@
   --text-secondary: #5c6470;
   --text-muted: #8a919c;
 
+  /* Always dark, in both themes. For surfaces that sit over photography
+     and carry white text — hero backdrops, badges on images — where
+     flipping with the theme would hide the text. */
+  --ink-fixed: #15181d;
+
   --border: #e4e7eb;
   --border-strong: #d2d6dc;
 
@@ -75,6 +80,7 @@
   --color-ink: var(--text-primary);
   --color-ink-soft: var(--text-secondary);
   --color-ink-muted: var(--text-muted);
+  --color-ink-fixed: var(--ink-fixed);
   --color-line: var(--border);
   --color-line-strong: var(--border-strong);
 

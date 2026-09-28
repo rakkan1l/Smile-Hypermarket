@@ -25,7 +25,7 @@ export function ImageHero({
   className,
 }: BaseProps & { image: string; imageAlt: string; className?: string }) {
   return (
-    <section className={cn("relative isolate flex min-h-[600px] items-end overflow-hidden bg-ink h-[82svh]", className)}>
+    <section className={cn("relative isolate flex min-h-[600px] items-end overflow-hidden bg-ink-fixed h-[82svh]", className)}>
       <Image
         src={image}
         alt={imageAlt}

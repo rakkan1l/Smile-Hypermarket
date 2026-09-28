@@ -48,7 +48,7 @@ export function ContactExplorer({ outlets }: { outlets: Outlet[] }) {
                               aria-pressed={active}
                               className={cn(
                                 "flex w-full items-center justify-between gap-3 rounded-full border px-4 py-2.5 text-left font-ui text-[15px] transition-colors duration-300 lg:rounded-[var(--radius)] lg:border-transparent lg:px-4 lg:py-3",
-                                active ? "border-ink bg-ink text-white lg:bg-light-blue lg:text-ink" : "border-line text-ink-soft hover:text-ink lg:hover:bg-off-white",
+                                active ? "border-ink bg-ink text-background lg:bg-light-blue lg:text-ink" : "border-line text-ink-soft hover:text-ink lg:hover:bg-off-white",
                               )}
                             >
                               {o.name}

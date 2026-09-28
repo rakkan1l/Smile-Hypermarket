@@ -8,7 +8,7 @@ const tones: Record<Tone, string> = {
   green: "bg-light-green text-smile-green-dark",
   neutral: "bg-soft-grey text-ink-soft",
   amber: "bg-[#fdf4e3] text-[#8a5a00]",
-  dark: "bg-ink/75 text-white backdrop-blur-md",
+  dark: "bg-ink-fixed/75 text-white backdrop-blur-md",
 };
 
 export function Badge({ children, tone = "neutral", className }: { children: ReactNode; tone?: Tone; className?: string }) {

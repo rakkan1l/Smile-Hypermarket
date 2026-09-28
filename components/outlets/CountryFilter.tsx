@@ -33,7 +33,10 @@ export function CountryFilter<T extends string = CountryFilterValue>({
             aria-pressed={active}
             className={cn(
               "relative inline-flex h-10 shrink-0 items-center gap-2 rounded-full px-5 font-ui text-[15px] transition-colors duration-300",
-              active ? "text-white" : "text-ink-soft hover:text-ink",
+              // The pill is bg-ink, which inverts with the theme, so the
+              // label has to invert with it — a literal white disappears
+              // against the light pill in dark mode.
+              active ? "text-background" : "text-ink-soft hover:text-ink",
             )}
           >
             {active && (
@@ -45,7 +48,7 @@ export function CountryFilter<T extends string = CountryFilterValue>({
             )}
             <span className="relative">{opt}</span>
             {counts?.[opt] !== undefined && (
-              <span className={cn("relative text-xs", active ? "text-white/60" : "text-ink-muted")}>{counts[opt]}</span>
+              <span className={cn("relative text-xs", active ? "text-background/60" : "text-ink-muted")}>{counts[opt]}</span>
             )}
           </button>
         );

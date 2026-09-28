@@ -38,7 +38,7 @@ export function Navbar() {
     <>
       <a
         href="#main"
-        className="sr-only z-[70] rounded-full bg-ink px-4 py-2 font-ui text-sm text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        className="sr-only z-[70] rounded-full bg-ink px-4 py-2 font-ui text-sm text-background focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
         Skip to content
       </a>

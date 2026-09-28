@@ -8,17 +8,19 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 function BrandItem({ brand }: { brand: Brand }) {
   return (
     <li
-      className="group/brand flex h-20 w-40 shrink-0 items-center justify-center sm:h-24 sm:w-52"
-      style={{ "--brand": brand.color } as CSSProperties}
+      className="group/brand flex h-24 w-44 shrink-0 items-center justify-center px-5 sm:h-28 sm:w-56 sm:px-7"
+      style={{ "--brand": brand.color ?? "var(--text-primary)" } as CSSProperties}
     >
       {brand.logo ? (
-        <Image
-          src={brand.logo}
-          alt={brand.name}
-          width={140}
-          height={56}
-          className="h-10 w-auto object-contain opacity-60 grayscale transition-all duration-500 group-hover/brand:scale-105 group-hover/brand:opacity-100 group-hover/brand:grayscale-0"
-        />
+        <span className="relative block h-full max-h-[64px] w-full sm:max-h-[76px]">
+          <Image
+            src={brand.logo}
+            alt={brand.name}
+            fill
+            sizes="(min-width: 640px) 176px, 136px"
+            className="object-contain opacity-55 mix-blend-multiply grayscale transition-all duration-500 ease-[var(--ease-premium)] group-hover/brand:scale-105 group-hover/brand:opacity-100 group-hover/brand:grayscale-0"
+          />
+        </span>
       ) : (
         <span className="font-display text-[22px] tracking-[-0.02em] text-ink-muted transition-all duration-500 ease-[var(--ease-premium)] group-hover/brand:scale-105 group-hover/brand:text-[var(--brand)] sm:text-[26px]">
           {brand.name}
@@ -30,7 +32,8 @@ function BrandItem({ brand }: { brand: Brand }) {
 
 function MarqueeRow({ brands, reverse, label }: { brands: Brand[]; reverse?: boolean; label: string }) {
   // Each half must be wider than the widest screen, so short lists are repeated.
-  const set = brands.length < 12 ? [...brands, ...brands] : brands;
+  const set: Brand[] = [];
+  while (set.length < 12) set.push(...brands);
   return (
     <div className="marquee-mask group/row overflow-hidden">
       <p className="sr-only">

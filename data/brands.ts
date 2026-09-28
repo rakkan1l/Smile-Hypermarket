@@ -1,32 +1,25 @@
 /**
- * Brands shown in the homepage marquee.
- * Add `logo: "/images/brands/amul.svg"` once official logo files are available;
- * until then the brand name is set in type. `color` is used on hover.
+ * Brands shown in the homepage "Top Brands" marquee.
+ * Logo files live in /public/images/brands. To add a brand, drop its logo
+ * there and add an entry below. Entries without a `logo` are set in type.
  */
 export interface Brand {
   name: string;
-  color: string;
+  /** Colour used on hover for text-only entries. */
+  color?: string;
   logo?: string;
 }
 
 export const brandsRowOne: Brand[] = [
-  { name: "Nestlé", color: "#5f6a72" },
-  { name: "Amul", color: "#d8232a" },
-  { name: "Britannia", color: "#c8102e" },
-  { name: "Tata", color: "#486aae" },
-  { name: "Aashirvaad", color: "#b5651d" },
-  { name: "Eastern", color: "#e2231a" },
-  { name: "MTR", color: "#c4161c" },
-  { name: "Brahmins", color: "#1f6a3a" },
+  { name: "Ajmi", logo: "/images/brands/ajmi.png" },
+  { name: "Amul", logo: "/images/brands/amul.png" },
+  { name: "Britannia", logo: "/images/brands/britannia.png" },
+  { name: "Aashirvaad", logo: "/images/brands/aashirvaad.png" },
 ];
 
 export const brandsRowTwo: Brand[] = [
-  { name: "Almarai", color: "#00843d" },
-  { name: "Al Ain", color: "#0071bc" },
-  { name: "Unilever", color: "#1f36c7" },
-  { name: "Colgate", color: "#e4002b" },
-  { name: "Dabur", color: "#00732f" },
-  { name: "Kellogg's", color: "#d31245" },
-  { name: "Milma", color: "#1b75bb" },
-  { name: "Himalaya", color: "#0c7c3f" },
+  { name: "Nestlé", logo: "/images/brands/nestle.png" },
+  { name: "Cadbury", logo: "/images/brands/cadbury.png" },
+  { name: "Almarai", logo: "/images/brands/almarai.png" },
+  { name: "Chandrika", logo: "/images/brands/chandrika.png" },
 ];

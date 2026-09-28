@@ -5,16 +5,16 @@
    Change brand colours here — every component reads from these.
 ------------------------------------------------------------------- */
 :root {
-  --smile-blue: #1d5fb4;
-  --smile-blue-dark: #164a8e;
-  --smile-green: #2f9e57;
-  --smile-green-dark: #247d44;
+  --smile-blue: #0779a1; /* logo blue #0889b1, deepened slightly for readable white button text */
+  --smile-blue-dark: #055f80;
+  --smile-green: #72bb26; /* logo green */
+  --smile-green-dark: #3f7a12;
 
   --background: #ffffff;
   --off-white: #f8f8f6;
   --soft-grey: #eef0f2;
-  --light-blue: #eef4fc;
-  --light-green: #eef8f1;
+  --light-blue: #e9f4f9;
+  --light-green: #f1f8e9;
 
   --text-primary: #15181d;
   --text-secondary: #5c6470;

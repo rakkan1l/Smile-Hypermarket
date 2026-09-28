@@ -39,7 +39,7 @@ export function Footer() {
       <Container className="pb-10 pt-16 lg:pt-24">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <Logo />
+            <Logo height={52} />
             <p className="mt-6 max-w-sm font-display text-2xl leading-snug tracking-[-0.02em] text-ink">{site.tagline}</p>
             <SocialIconLinks className="mt-8" />
           </div>

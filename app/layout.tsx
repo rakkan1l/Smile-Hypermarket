@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     images: [{ url: images.hero, width: 1200, height: 630, alt: "Smile Hypermarket" }],
   },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/icon.svg" },
 };
 
 export const viewport: Viewport = {

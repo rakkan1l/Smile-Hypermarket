@@ -12,7 +12,7 @@ import { images } from "./images";
 export const leadership: Leader[] = [
   {
     id: "chairman",
-    name: "Chairman's Name",
+    name: "Muhammad Ali",
     position: "Chairman",
     image: images.portraitA,
     summary:
@@ -46,7 +46,7 @@ export const leadership: Leader[] = [
   },
   {
     id: "executive-director",
-    name: "Executive Director's Name",
+    name: "Naseem Kamal",
     position: "Executive Director",
     image: images.portraitC,
     summary:
@@ -62,7 +62,7 @@ export const leadership: Leader[] = [
   },
   {
     id: "managing-partner-1",
-    name: "Managing Partner's Name",
+    name: "Noushad Keelath",
     position: "Managing Partner",
     image: images.portraitD,
     summary:
@@ -78,7 +78,7 @@ export const leadership: Leader[] = [
   },
   {
     id: "managing-partner-2",
-    name: "Managing Partner's Name",
+    name: "Rajeev Puthiyaveettil",
     position: "Managing Partner",
     image: "",
     summary:

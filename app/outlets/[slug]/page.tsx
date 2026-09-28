@@ -79,7 +79,7 @@ export default async function OutletPage({ params }: PageProps<"/outlets/[slug]"
                   updates.
                 </p>
               ) : (
-                <OutletMeta outlet={outlet} fields={["address", "phone", "whatsapp", "email", "hours"]} className="mt-8 text-base" />
+                <OutletMeta outlet={outlet} fields={["address", "phone", "whatsapp", "hours"]} className="mt-8 text-base" />
               )}
               <div className="mt-10">
                 {comingSoon ? (

@@ -88,7 +88,7 @@ export function ContactExplorer({ outlets }: { outlets: Outlet[] }) {
                       This outlet is not open yet. For opening updates, please use the form below or contact our main team.
                     </p>
                   ) : (
-                    <OutletMeta outlet={selected} fields={["address", "phone", "whatsapp", "email", "hours"]} className="mt-6" />
+                    <OutletMeta outlet={selected} fields={["address", "phone", "whatsapp", "hours"]} className="mt-6" />
                   )}
                   <div className="mt-auto pt-8">
                     {comingSoon ? (

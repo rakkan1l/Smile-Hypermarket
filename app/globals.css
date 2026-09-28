@@ -152,6 +152,35 @@
   background-color: var(--off-white);
 }
 
+/* A section that stays light even in dark mode. The brand logos are
+   supplied with white backgrounds and rely on mix-blend-multiply, which
+   only cancels that white against a light backdrop. Re-pointing the
+   tokens locally keeps every child — headings, body copy, borders —
+   readable without per-element overrides. */
+:root[data-theme="dark"] .light-island {
+  --background: #ffffff;
+  --off-white: #f8f8f6;
+  --soft-grey: #eef0f2;
+  --light-blue: #e9f4f9;
+  --light-green: #f1f8e9;
+
+  --smile-blue: #0779a1;
+  --smile-blue-dark: #055f80;
+  --smile-green: #72bb26;
+  --smile-green-dark: #3f7a12;
+
+  --text-primary: #15181d;
+  --text-secondary: #5c6470;
+  --text-muted: #8a919c;
+
+  --border: #e4e7eb;
+  --border-strong: #d2d6dc;
+
+  background-color: #ffffff;
+  color: var(--text-primary);
+  color-scheme: light;
+}
+
 @layer utilities {
   .no-scrollbar { scrollbar-width: none; }
   .no-scrollbar::-webkit-scrollbar { display: none; }

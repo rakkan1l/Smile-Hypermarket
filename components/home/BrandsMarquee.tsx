@@ -64,7 +64,7 @@ function MarqueeRow({ brands, reverse, label }: { brands: Brand[]; reverse?: boo
 /** Reusable infinite brand marquee. Pass custom rows to reuse it elsewhere. */
 export function BrandsMarquee({ rows = [brandsRowOne, brandsRowTwo] }: { rows?: Brand[][] }) {
   return (
-    <section aria-labelledby="brands-heading" className="py-20 sm:py-28">
+    <section aria-labelledby="brands-heading" className="light-island py-20 sm:py-28">
       <Container>
         <div className="grid gap-6 border-t border-line pt-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">

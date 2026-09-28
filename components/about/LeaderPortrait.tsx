@@ -16,7 +16,7 @@ export function LeaderPortrait({ leader, sizes, className }: { leader: Leader; s
           alt={`Portrait of ${leader.name}, ${leader.position} of Smile Hypermarket`}
           fill
           sizes={sizes}
-          className="object-cover object-top grayscale-[20%] transition-all duration-[1.4s] ease-[var(--ease-premium)] group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="object-cover object-top transition-transform duration-[1.4s] ease-[var(--ease-premium)] group-hover:scale-[1.03]"
         />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3" role="img" aria-label={`Portrait of ${leader.name} coming soon`}>

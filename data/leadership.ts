@@ -29,9 +29,9 @@ export const leadership: Leader[] = [
   },
   {
     id: "managing-director",
-    name: "Managing Director's Name",
+    name: "Habeeb Madathil",
     position: "Managing Director",
-    image: images.portraitB,
+    image: "/images/leadership/habeeb-madathil.jpg",
     summary:
       "Leads day-to-day strategy across the group, turning Smile's founding values into a modern, scalable retail operation.",
     biography:

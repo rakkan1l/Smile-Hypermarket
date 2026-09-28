@@ -22,7 +22,6 @@ export const mainNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Outlets", href: "/outlets" },
-  { label: "Offers", href: "/offers" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ] as const;

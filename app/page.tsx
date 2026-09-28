@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/home/Hero";
 import { BrandsMarquee } from "@/components/home/BrandsMarquee";
 import { WhyChooseBento } from "@/components/home/WhyChooseBento";
-import { OfferPreview } from "@/components/home/OfferPreview";
 import { OutletPreview } from "@/components/home/OutletPreview";
 import { StoryPreview } from "@/components/home/StoryPreview";
 import { SocialSection } from "@/components/home/SocialSection";
@@ -27,7 +26,6 @@ export default function HomePage() {
       <BrandsMarquee />
       <SocialSection />
       <WhyChooseBento />
-      <OfferPreview />
       <OutletPreview />
       <StoryPreview />
     </>

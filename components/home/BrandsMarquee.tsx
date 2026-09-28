@@ -18,7 +18,7 @@ function BrandItem({ brand }: { brand: Brand }) {
             alt={brand.name}
             fill
             sizes="(min-width: 640px) 176px, 136px"
-            className="object-contain opacity-55 mix-blend-multiply grayscale transition-all duration-500 ease-[var(--ease-premium)] group-hover/brand:scale-105 group-hover/brand:opacity-100 group-hover/brand:grayscale-0"
+            className="object-contain mix-blend-multiply"
           />
         </span>
       ) : (

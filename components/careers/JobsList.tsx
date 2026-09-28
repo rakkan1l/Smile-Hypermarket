@@ -40,7 +40,10 @@ export function JobsList({ jobs }: { jobs: Job[] }) {
         </AnimatePresence>
       </ul>
       {visible.length === 0 && (
-        <p className="py-12 text-center text-ink-soft">No open positions here right now — please check back soon or send a general application.</p>
+        <div className="py-16 text-center">
+          <p className="text-lg font-semibold text-ink">No Roles Available at the Moment</p>
+          <p className="mt-2 text-ink-soft">Check Back Soon</p>
+        </div>
       )}
     </>
   );

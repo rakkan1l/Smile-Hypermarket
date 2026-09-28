@@ -11,7 +11,7 @@ export const jobs: Job[] = [
     country: "UAE",
     employmentType: "Full-time",
     postedDate: "2026-09-18",
-    status: "open",
+    status: "closed",
     experience: "8+ years in hypermarket operations, including 3+ years leading a store",
     description:
       "Lead our Al Jurf hypermarket and set the standard for how Smile looks, feels and serves customers in the UAE. You will own store performance, people and the everyday customer experience.",
@@ -39,7 +39,7 @@ export const jobs: Job[] = [
     country: "India",
     employmentType: "Full-time",
     postedDate: "2026-09-22",
-    status: "open",
+    status: "closed",
     experience: "3+ years in fresh produce, fish or meat sections",
     description:
       "Look after the heart of the store. You will run our fresh departments at Varam, making sure every fruit, vegetable and cut on display is something you would take home yourself.",
@@ -65,7 +65,7 @@ export const jobs: Job[] = [
     country: "India",
     employmentType: "Full-time",
     postedDate: "2026-09-24",
-    status: "open",
+    status: "closed",
     experience: "0–2 years; freshers welcome",
     description:
       "Be the friendly last impression of every Smile visit. Our cashiers keep checkouts moving quickly while making every customer feel looked after.",
@@ -91,7 +91,7 @@ export const jobs: Job[] = [
     country: "India",
     employmentType: "Full-time",
     postedDate: "2026-09-10",
-    status: "open",
+    status: "closed",
     experience: "5+ years in FMCG or retail buying",
     description:
       "Shape what families find on Smile shelves. You will manage the grocery category range, suppliers and pricing across our Kerala outlets.",
@@ -116,7 +116,7 @@ export const jobs: Job[] = [
     country: "UAE",
     employmentType: "Full-time",
     postedDate: "2026-09-25",
-    status: "open",
+    status: "closed",
     experience: "1+ year in retail preferred",
     description:
       "Keep our aisles full, tidy and welcoming, and help customers find exactly what they came for.",
@@ -141,7 +141,7 @@ export const jobs: Job[] = [
     country: "India",
     employmentType: "Full-time",
     postedDate: "2026-09-05",
-    status: "open",
+    status: "closed",
     experience: "2+ years in social media or digital marketing",
     description:
       "Tell the Smile story online. You will plan and publish campaigns across Instagram, Facebook and WhatsApp for our India and UAE audiences.",

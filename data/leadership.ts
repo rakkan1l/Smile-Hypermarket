@@ -64,7 +64,7 @@ export const leadership: Leader[] = [
     id: "managing-partner-1",
     name: "Noushad Keelath",
     position: "Managing Partner",
-    image: images.portraitD,
+    image: "/images/leadership/noushad-keelath.jpg",
     summary:
       "Partners in Smile's growth, with a particular focus on new markets, partnerships and the customer experience in the UAE.",
     biography:

@@ -6,10 +6,14 @@ import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 
 type Field = "address" | "phone" | "whatsapp" | "hours";
 
-/** Contact detail list for an outlet. Choose which fields to show. Empty values are hidden automatically. */
+/**
+ * Contact detail list for an outlet. Choose which fields to show; empty values
+ * are hidden automatically. Defaults to the address only — phone and WhatsApp
+ * are reachable through the OutletActions buttons that sit alongside this.
+ */
 export function OutletMeta({
   outlet,
-  fields = ["address", "phone"],
+  fields = ["address"],
   className,
 }: {
   outlet: Outlet;

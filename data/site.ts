@@ -7,7 +7,7 @@ export const site = {
   shortName: "Smile",
   tagline: "Your Family's Trusted Shopping Partner — Across Borders.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://smilehypermarket.com",
-  email: "hello@smilehypermarket.com",
+  email: "smilecustomercare1@gmail.com",
   careersEmail: "smilehyperhr@gmail.com",
   /** Main WhatsApp number in international format, no "+" or spaces. Placeholder. */
   whatsapp: "919000000000",

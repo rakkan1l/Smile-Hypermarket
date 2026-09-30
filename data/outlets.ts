@@ -55,7 +55,7 @@ export const outlets: Outlet[] = [
     whatsapp: "918137999332",
     email: "",
     openingHours: "",
-    image: images.groceryAisle,
+    image: "/images/outlets/kambil.jpg",
     gallery: [images.fruits, images.shelves, images.groceryBasket],
     mapQuery: "Smile Hypermarket Kambil Kannur Kerala",
     mapUrl: "https://maps.app.goo.gl/Fxt3gbkLy24zAS6k8",

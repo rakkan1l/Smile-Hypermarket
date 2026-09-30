@@ -8,6 +8,10 @@ import { images } from "./images";
  * placeholders written to show the layout. Replace every field with the
  * confirmed details and official photographs before launch.
  * Leave `image` as "" to show an elegant monogram instead of a photo.
+ *
+ * These filenames stay stable across edits (see next.config.ts, which sets
+ * a must-revalidate Cache-Control on /images/leadership/* so a replaced
+ * photo is picked up on next load instead of being served from cache).
  */
 export const leadership: Leader[] = [
   {

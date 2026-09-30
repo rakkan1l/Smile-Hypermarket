@@ -135,7 +135,7 @@ export const outlets: Outlet[] = [
     whatsapp: "971582836359",
     email: "",
     openingHours: "",
-    image: images.retailFloor,
+    image: "/images/outlets/al-jurf.jpg",
     gallery: [images.aisle, images.fruits, images.shoppingBags, images.checkout],
     mapQuery: "Smile Hypermarket Al Jurf Ajman UAE",
     mapUrl: "https://maps.app.goo.gl/XfxdkZRgQi5EUqE27",

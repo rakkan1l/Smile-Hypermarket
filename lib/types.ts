@@ -5,9 +5,9 @@ export interface Outlet {
   id: string;
   slug: string;
   name: string;
-  /** Short label used in compact lists, e.g. "Dharmadam" for "Smile Express – Dharmadam". */
+  /** Short label used in compact lists, e.g. "Dharmadam" for "Smile Xpress – Dharmadam". */
   shortName: string;
-  format: "Hypermarket" | "Express";
+  format: "Hypermarket" | "Xpress";
   country: Country;
   city: string;
   area: string;

@@ -23,7 +23,7 @@ export const milestones = [
   {
     label: "Expanding the Smile Family",
     title: "New formats for new needs",
-    body: "Smile Express in Dharmadam brought the Smile promise to quick daily shopping, and the team grew with every new opening.",
+    body: "Smile Xpress in Dharmadam brought the Smile promise to quick daily shopping, and the team grew with every new opening.",
     image: images.shelves,
   },
   {

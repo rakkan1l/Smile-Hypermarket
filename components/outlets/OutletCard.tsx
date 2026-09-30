@@ -20,7 +20,7 @@ export function OutletCard({ outlet }: { outlet: Outlet }) {
         />
         <div className="absolute left-4 top-4 flex gap-2">
           <CountryBadge country={outlet.country} onImage />
-          {outlet.format === "Express" && <Badge tone="dark">Express</Badge>}
+          {outlet.format === "Xpress" && <Badge tone="dark">Xpress</Badge>}
         </div>
       </Link>
       <div className="flex flex-1 flex-col p-6">

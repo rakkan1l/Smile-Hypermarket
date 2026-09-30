@@ -68,7 +68,7 @@ export default async function OutletPage({ params }: PageProps<"/outlets/[slug]"
             <div className="lg:col-span-5">
               <div className="flex items-center gap-3">
                 <CountryBadge country={outlet.country} />
-                {outlet.format === "Express" && <Badge tone="neutral">Express format</Badge>}
+                {outlet.format === "Xpress" && <Badge tone="neutral">Xpress format</Badge>}
               </div>
               <h2 id="visit-heading" className="mt-6 text-4xl leading-[1.05] tracking-[-0.035em] sm:text-5xl">
                 {comingSoon ? "Opening soon" : "Visit this outlet"}

@@ -30,7 +30,7 @@ export const outlets: Outlet[] = [
     whatsapp: "919074289657",
     email: "",
     openingHours: "",
-    image: images.supermarketWide,
+    image: "/images/outlets/varam.jpg",
     gallery: [images.produce, images.aisle, images.bakery, images.checkout],
     mapQuery: "Smile Hypermarket Varam Kannur Kerala",
     mapUrl: "https://maps.app.goo.gl/KTkuDxH42AT24vXA6",

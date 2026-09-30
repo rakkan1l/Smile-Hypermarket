@@ -48,7 +48,7 @@ export const leadership: Leader[] = [
     id: "executive-director",
     name: "Naseem Kamal",
     position: "Executive Director",
-    image: images.portraitC,
+    image: "/images/leadership/naseem-kamal.jpg",
     summary:
       "Brings operational precision to Smile — from supply chain and store standards to the people who serve our customers every day.",
     biography:

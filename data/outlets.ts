@@ -79,7 +79,7 @@ export const outlets: Outlet[] = [
     whatsapp: "918282934340",
     email: "",
     openingHours: "",
-    image: images.storeInterior,
+    image: "/images/outlets/kakkad.jpg",
     gallery: [images.freshMarket, images.aisle, images.checkout],
     mapQuery: "Smile Hypermarket Kakkad Kannur Kerala",
     mapUrl: "https://maps.app.goo.gl/kyGyEG2ApPSuocnU6",

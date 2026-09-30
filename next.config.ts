@@ -10,14 +10,14 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Leadership portraits get replaced in place (same filename, new
-        // bytes) whenever a leader's photo is updated. Without this, a
-        // browser that already cached the old file can keep showing it
-        // after the new one is deployed. must-revalidate forces a
-        // conditional check against the server on every load — cheap
-        // (a 304) when the file hasn't changed, and correct the moment
-        // it has.
-        source: "/images/leadership/:path*",
+        // Leadership portraits and outlet photos get replaced in place
+        // (same filename, new bytes) whenever one is updated. Without
+        // this, a browser that already cached the old file can keep
+        // showing it after the new one is deployed. must-revalidate
+        // forces a conditional check against the server on every load —
+        // cheap (a 304) when the file hasn't changed, and correct the
+        // moment it has.
+        source: "/images/:folder(leadership|outlets)/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
     ];

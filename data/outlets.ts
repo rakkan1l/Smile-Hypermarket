@@ -104,7 +104,7 @@ export const outlets: Outlet[] = [
     whatsapp: "917733873366",
     email: "",
     openingHours: "",
-    image: images.shelves,
+    image: "/images/outlets/dharmadam.jpg",
     gallery: [images.groceryBasket, images.produce, images.bakery],
     mapQuery: "Smile Express Dharmadam Thalassery Kerala",
     mapUrl: "https://maps.app.goo.gl/mscLAnZxXuQMrmRNA",

@@ -11,7 +11,7 @@
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=2000&q=80`;
 
 export const images = {
-  hero: unsplash("1604719312566-8912e9227c6a"),
+  hero: "/images/hero.jpg",
   aisle: unsplash("1578916171728-46686eac8d58"),
   produce: unsplash("1542838132-92c53300491e"),
   shopper: unsplash("1534723452862-4c874018d66d"),

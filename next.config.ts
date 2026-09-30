@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
         source: "/images/:folder(leadership|outlets)/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
+      {
+        // Same reasoning for the home page hero, which is also swapped in
+        // place under a stable filename.
+        source: "/images/hero.jpg",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
     ];
   },
 };

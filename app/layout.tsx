@@ -3,9 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/data/site";
 import { images } from "@/data/images";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 
 /*
  * Google Fonts (Red Hat Display, Red Hat Text, Poppins), self-hosted from
@@ -79,10 +76,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        {/* The public site's navbar/footer live in app/(site)/layout.tsx so
+            the admin area can render its own chrome. */}
+        {children}
       </body>
     </html>
   );

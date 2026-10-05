@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { mainNav, site } from "@/data/site";
-import { outletsByCountry } from "@/data/outlets";
-import type { Country } from "@/lib/types";
+import { mainNav } from "@/data/site";
+import { getOutlets } from "@/lib/content";
+import type { SiteSettings } from "@/lib/content";
+import type { Country, Outlet } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { SocialIconLinks } from "@/components/ui/SocialIconLinks";
 import { Logo } from "./Logo";
@@ -14,12 +15,12 @@ function FooterHeading({ children }: { children: string }) {
 
 const linkClass = "text-[15px] text-ink-soft transition-colors duration-300 hover:text-smile-blue";
 
-function CountryColumn({ country }: { country: Country }) {
+function CountryColumn({ country, outlets }: { country: Country; outlets: Outlet[] }) {
   return (
     <div>
       <FooterHeading>{country}</FooterHeading>
       <ul className="mt-5 space-y-3">
-        {outletsByCountry(country).map((o) => (
+        {outlets.filter((o) => o.country === country).map((o) => (
           <li key={o.slug}>
             <Link href={`/outlets/${o.slug}`} className={linkClass}>
               {o.shortName}
@@ -32,7 +33,8 @@ function CountryColumn({ country }: { country: Country }) {
   );
 }
 
-export function Footer() {
+export async function Footer({ settings }: { settings: SiteSettings }) {
+  const all = await getOutlets();
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line bg-off-white">
@@ -40,7 +42,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <Logo height={52} />
-            <p className="mt-6 max-w-sm font-display text-2xl leading-snug tracking-[-0.02em] text-ink">{site.tagline}</p>
+            <p className="mt-6 max-w-sm font-display text-2xl leading-snug tracking-[-0.02em] text-ink">{settings.tagline}</p>
             <SocialIconLinks className="mt-8" />
           </div>
 
@@ -57,8 +59,8 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-            <CountryColumn country="India" />
-            <CountryColumn country="UAE" />
+            <CountryColumn country="India" outlets={all} />
+            <CountryColumn country="UAE" outlets={all} />
           </div>
         </div>
 

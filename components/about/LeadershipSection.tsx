@@ -1,4 +1,4 @@
-import { leadership } from "@/data/leadership";
+import { getLeadership } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LeadershipProfile } from "./LeadershipProfile";
@@ -6,7 +6,8 @@ import { LeadershipProfile } from "./LeadershipProfile";
 /**
  * About-page leadership: all leaders shown as full editorial profiles.
  */
-export function LeadershipSection() {
+export async function LeadershipSection() {
+  const leadership = await getLeadership();
   return (
     <section aria-labelledby="leadership-heading" className="bg-off-white py-20 sm:py-28">
       <Container>

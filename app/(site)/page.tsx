@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
+import { getSiteSettings } from "@/lib/content";
 import { Hero } from "@/components/home/Hero";
 import { BrandsMarquee } from "@/components/home/BrandsMarquee";
 import { OutletPreview } from "@/components/home/OutletPreview";
@@ -15,10 +16,11 @@ export const metadata: Metadata = {
   title: { absolute: "Smile Hypermarket | Kannur & UAE" },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { heroImage } = await getSiteSettings();
   return (
     <>
-      <Hero />
+      <Hero heroImage={heroImage} />
       <BrandsMarquee />
       <SocialSection />
       <OutletPreview />

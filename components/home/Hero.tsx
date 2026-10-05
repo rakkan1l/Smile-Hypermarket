@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { images } from "@/data/images";
+
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
-export function Hero() {
+export function Hero({ heroImage }: { heroImage: string }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -19,7 +19,7 @@ export function Hero() {
     <section ref={ref} aria-label="Welcome to Smile Hypermarket" className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink-fixed h-[92svh] lg:h-[100svh]">
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <Image
-          src={images.hero}
+          src={heroImage}
           alt="Bright, well-stocked aisle inside a Smile hypermarket"
           fill
           priority

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { comingSoonOutlets, openOutlets } from "@/data/outlets";
+import { getComingSoonOutlets, getOpenOutlets } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { EditorialHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -13,7 +13,8 @@ export const metadata: Metadata = buildMetadata({
   path: "/outlets",
 });
 
-export default function OutletsPage() {
+export default async function OutletsPage() {
+  const [openOutlets, comingSoonOutlets] = await Promise.all([getOpenOutlets(), getComingSoonOutlets()]);
   return (
     <>
       <EditorialHero

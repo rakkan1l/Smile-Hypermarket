@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
-import { getJob, jobs } from "@/data/jobs";
+import { getJob, getJobs } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { formatDate } from "@/lib/format";
 import { EditorialHero } from "@/components/ui/PageHero";
@@ -12,13 +12,13 @@ import { ApplicationForm } from "@/components/careers/ApplicationForm";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return jobs.map((j) => ({ slug: j.slug }));
+export async function generateStaticParams() {
+  return (await getJobs()).map((j) => ({ slug: j.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/careers/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const job = getJob(slug);
+  const job = await getJob(slug);
   if (!job) return {};
   return buildMetadata({
     title: `${job.position} — ${job.branch}`,
@@ -45,7 +45,7 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
 
 export default async function JobPage({ params }: PageProps<"/careers/[slug]">) {
   const { slug } = await params;
-  const job = getJob(slug);
+  const job = await getJob(slug);
   if (!job) notFound();
 
   const facts = [

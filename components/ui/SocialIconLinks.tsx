@@ -1,15 +1,18 @@
-import { site } from "@/data/site";
+"use client";
+
 import { whatsappHref } from "@/lib/links";
 import { cn } from "@/lib/cn";
+import { useSiteSettings } from "@/components/SiteSettingsProvider";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "./BrandIcons";
 
-const links = [
-  { href: site.social.instagram, label: "Smile on Instagram", Icon: InstagramIcon },
-  { href: site.social.facebook, label: "Smile on Facebook", Icon: FacebookIcon },
-  { href: whatsappHref(site.whatsapp), label: "Chat with Smile on WhatsApp", Icon: WhatsAppIcon },
-];
-
 export function SocialIconLinks({ className }: { className?: string }) {
+  const site = useSiteSettings();
+  const links = [
+    { href: site.social.instagram, label: "Smile on Instagram", Icon: InstagramIcon },
+    { href: site.social.facebook, label: "Smile on Facebook", Icon: FacebookIcon },
+    { href: whatsappHref(site.whatsapp), label: "Chat with Smile on WhatsApp", Icon: WhatsAppIcon },
+  ];
+
   return (
     <ul className={cn("flex gap-3", className)}>
       {links.map(({ href, label, Icon }) => (

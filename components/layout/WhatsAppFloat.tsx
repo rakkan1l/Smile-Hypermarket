@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
-import { openOutlets } from "@/data/outlets";
+import type { Outlet } from "@/lib/types";
 import { whatsappHref } from "@/lib/links";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 
 /** Global floating WhatsApp button with an outlet picker. */
-export function WhatsAppFloat() {
+export function WhatsAppFloat({ outlets: openOutlets }: { outlets: Outlet[] }) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);

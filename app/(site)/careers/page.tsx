@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { openJobs } from "@/data/jobs";
+import { getOpenJobs } from "@/lib/content";
 import { images } from "@/data/images";
 import { buildMetadata } from "@/lib/metadata";
 import { ImageHero } from "@/components/ui/PageHero";
@@ -16,7 +16,8 @@ export const metadata: Metadata = buildMetadata({
   image: images.checkout,
 });
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const openJobs = await getOpenJobs();
   return (
     <>
       <ImageHero

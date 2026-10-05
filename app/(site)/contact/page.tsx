@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
-import { outlets } from "@/data/outlets";
-import { site } from "@/data/site";
+import { Mail, Phone } from "lucide-react";
+import { getOutlets, getSiteSettings } from "@/lib/content";
+
 import { buildMetadata } from "@/lib/metadata";
 import { mailHref, whatsappHref } from "@/lib/links";
 import { EditorialHero } from "@/components/ui/PageHero";
@@ -14,7 +14,8 @@ export const metadata: Metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [outlets, site] = await Promise.all([getOutlets(), getSiteSettings()]);
   return (
     <>
       <EditorialHero
@@ -33,6 +34,17 @@ export default function ContactPage() {
                 </span>
               </a>
             </li>
+            {site.officePhone && (
+              <li>
+                <a href={`tel:${site.officePhone.replace(/\s+/g, "")}`} className="group flex items-center gap-4 py-5">
+                  <Phone aria-hidden className="size-5 text-smile-blue" />
+                  <span>
+                    <span className="block font-ui text-xs uppercase tracking-[0.2em] text-ink-muted">Office</span>
+                    <span className="text-ink transition-colors group-hover:text-smile-blue">{site.officePhone}</span>
+                  </span>
+                </a>
+              </li>
+            )}
             <li>
               <a href={whatsappHref(site.whatsapp)} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 py-5">
                 <WhatsAppIcon className="size-5 text-[#1faa59]" />

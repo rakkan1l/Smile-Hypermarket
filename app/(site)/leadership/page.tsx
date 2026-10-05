@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { leadership } from "@/data/leadership";
+import { getLeadership } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { EditorialHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -11,7 +11,8 @@ export const metadata: Metadata = buildMetadata({
   path: "/leadership",
 });
 
-export default function LeadershipPage() {
+export default async function LeadershipPage() {
+  const leadership = await getLeadership();
   return (
     <>
       <EditorialHero

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { publishChanges } from "@/app/admin/actions";
-import { Card, ListField, SelectField, TextField } from "./Fields";
+import { Card, ListField, SelectField, TextArea, TextField } from "./Fields";
 import { GalleryField, ImageField } from "./ImageField";
 import { SaveBar, type SaveState } from "./SaveBar";
 
@@ -20,6 +20,7 @@ export type Outlet = {
   city: string;
   area: string;
   address: string;
+  intro: string;
   phone: string;
   whatsapp: string;
   opening_hours: string;
@@ -107,6 +108,9 @@ export function OutletEditor({ initial }: { initial: Outlet }) {
           <TextField label="Opening hours" className="sm:col-span-2"
             hint="Leave empty to hide"
             value={form.opening_hours} onChange={(e) => set("opening_hours", e.target.value)} />
+          <TextArea label="Introduction" className="sm:col-span-2" rows={3}
+            hint="The short paragraph at the top of the outlet page"
+            value={form.intro} onChange={(e) => set("intro", e.target.value)} />
         </div>
       </Card>
 

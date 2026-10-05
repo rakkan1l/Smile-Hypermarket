@@ -1,4 +1,4 @@
-import { featuredOutlets, openOutlets } from "@/data/outlets";
+import { getOpenOutlets } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
@@ -6,7 +6,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { OutletTile } from "@/components/outlets/OutletTile";
 import { cn } from "@/lib/cn";
 
-export function OutletPreview() {
+export async function OutletPreview() {
+  const openOutlets = await getOpenOutlets();
+  const featuredOutlets = openOutlets.slice(0, 3);
   const countries = new Set(openOutlets.map((o) => o.country)).size;
   return (
     <section aria-labelledby="outlets-heading" className="overflow-hidden border-t border-line py-20 sm:py-28">

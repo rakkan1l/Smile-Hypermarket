@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Check, Sparkles } from "lucide-react";
-import { getOutlet, openOutlets, outlets } from "@/data/outlets";
+import { getOutlet, getOutlets, getOpenOutlets } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { ImageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -16,13 +16,13 @@ import { OutletTile } from "@/components/outlets/OutletTile";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return outlets.map((o) => ({ slug: o.slug }));
+export async function generateStaticParams() {
+  return (await getOutlets()).map((o) => ({ slug: o.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/outlets/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const outlet = getOutlet(slug);
+  const outlet = await getOutlet(slug);
   if (!outlet) return {};
   return buildMetadata({
     title: `${outlet.name} — ${outlet.city}, ${outlet.country}`,
@@ -37,11 +37,11 @@ export async function generateMetadata({ params }: PageProps<"/outlets/[slug]">)
 
 export default async function OutletPage({ params }: PageProps<"/outlets/[slug]">) {
   const { slug } = await params;
-  const outlet = getOutlet(slug);
+  const outlet = await getOutlet(slug);
   if (!outlet) notFound();
 
   const comingSoon = outlet.status === "coming-soon";
-  const nearby = openOutlets.filter((o) => o.slug !== outlet.slug && o.country === outlet.country).slice(0, 3);
+  const nearby = (await getOpenOutlets()).filter((o) => o.slug !== outlet.slug && o.country === outlet.country).slice(0, 3);
 
   return (
     <>

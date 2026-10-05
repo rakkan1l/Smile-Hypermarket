@@ -1,11 +1,11 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { site } from "@/data/site";
+import { useSiteSettings } from "@/components/SiteSettingsProvider";
 import { Container } from "@/components/ui/Container";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
 
-const cards = [
+const buildCards = (site: ReturnType<typeof useSiteSettings>) => [
   {
     platform: "Instagram",
     description: "New arrivals, fresh finds and behind-the-scenes moments from our stores.",
@@ -42,6 +42,8 @@ const cards = [
 ];
 
 export function SocialSection() {
+  const site = useSiteSettings();
+  const cards = buildCards(site);
   return (
     <section aria-labelledby="social-heading" className="py-20 sm:py-28">
       <Container>

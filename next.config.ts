@@ -4,7 +4,11 @@ const nextConfig: NextConfig = {
   images: {
     // Temporary placeholder photography is served from Unsplash.
     // Once real Smile photos are added to /public/images, this can be removed.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      // Photos uploaded through /admin live in Supabase Storage.
+      { protocol: "https", hostname: "ukskleojqtxrzlxvykmp.supabase.co", pathname: "/storage/v1/object/public/**" },
+    ],
     formats: ["image/avif", "image/webp"],
   },
   async headers() {

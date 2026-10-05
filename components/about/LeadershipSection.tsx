@@ -19,7 +19,7 @@ export async function LeadershipSection() {
         />
         <div className="mt-16 space-y-24 lg:mt-24 lg:space-y-32">
           {leadership.map((l, i) => (
-            <LeadershipProfile key={l.id} leader={l} flip={i % 2 === 1} />
+            <LeadershipProfile key={l.id} leader={l} flip={i % 2 === 1} showStory={false} />
           ))}
         </div>
       </Container>

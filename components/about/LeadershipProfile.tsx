@@ -8,8 +8,16 @@ import { cn } from "@/lib/cn";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { LeaderPortrait } from "./LeaderPortrait";
 
-/** Large editorial profile: 45% portrait / 55% story, alternating sides. */
-export function LeadershipProfile({ leader, flip, defaultOpen = false }: { leader: Leader; flip?: boolean; defaultOpen?: boolean }) {
+/**
+ * Large editorial profile: 45% portrait / 55% story, alternating sides.
+ *
+ * `showStory` controls the expandable Background / Journey / Contribution
+ * panel. Our Story shows the short version; the dedicated Leadership page
+ * keeps the full read, so that copy still has somewhere to live.
+ */
+export function LeadershipProfile({
+  leader, flip, defaultOpen = false, showStory = true,
+}: { leader: Leader; flip?: boolean; defaultOpen?: boolean; showStory?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   const panelId = useId();
 
@@ -39,21 +47,23 @@ export function LeadershipProfile({ leader, flip, defaultOpen = false }: { leade
           </figure>
         )}
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls={panelId}
-          className="mt-10 inline-flex items-center gap-3 self-start font-ui text-[15px] text-smile-blue"
-        >
-          <span className="inline-flex size-9 items-center justify-center rounded-full border border-smile-blue/30 transition-colors group-hover:border-smile-blue">
-            {open ? <Minus aria-hidden className="size-4" /> : <Plus aria-hidden className="size-4" />}
-          </span>
-          {open ? "Close Story" : "Read Story"}
-        </button>
+        {showStory && (
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls={panelId}
+            className="mt-10 inline-flex items-center gap-3 self-start font-ui text-[15px] text-smile-blue"
+          >
+            <span className="inline-flex size-9 items-center justify-center rounded-full border border-smile-blue/30 transition-colors group-hover:border-smile-blue">
+              {open ? <Minus aria-hidden className="size-4" /> : <Plus aria-hidden className="size-4" />}
+            </span>
+            {open ? "Close Story" : "Read Story"}
+          </button>
+        )}
 
         <AnimatePresence initial={false}>
-          {open && (
+          {showStory && open && (
             <motion.div
               id={panelId}
               initial={{ height: 0, opacity: 0 }}

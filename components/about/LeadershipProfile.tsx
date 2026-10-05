@@ -21,11 +21,15 @@ export function LeadershipProfile({
   const [open, setOpen] = useState(defaultOpen);
   const panelId = useId();
 
+  // Only the sections that actually have copy — an expander that opens onto
+  // three empty rows is worse than no expander at all.
   const story = [
     { label: "Personal history", text: leader.personalHistory },
     { label: "The journey", text: leader.journey },
     { label: "Contribution to Smile", text: leader.contribution },
-  ];
+  ].filter((s) => s.text?.trim());
+
+  const hasStory = showStory && story.length > 0;
 
   return (
     <article className={cn("group grid gap-10 lg:gap-20", flip ? "lg:grid-cols-[55fr_45fr]" : "lg:grid-cols-[45fr_55fr]")}>
@@ -47,7 +51,7 @@ export function LeadershipProfile({
           </figure>
         )}
 
-        {showStory && (
+        {hasStory && (
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -63,7 +67,7 @@ export function LeadershipProfile({
         )}
 
         <AnimatePresence initial={false}>
-          {showStory && open && (
+          {hasStory && open && (
             <motion.div
               id={panelId}
               initial={{ height: 0, opacity: 0 }}

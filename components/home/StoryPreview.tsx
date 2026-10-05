@@ -11,10 +11,13 @@ export function StoryPreview() {
       <Container>
         <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="relative lg:col-span-6">
-            <ImageReveal className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] sm:aspect-[3/2] lg:aspect-[4/3]">
+            {/* 3:2 at every size: the photo is a wide 16:9 shot of the store
+                floor, so a squarer frame would crop the branded wall at its
+                centre. */}
+            <ImageReveal className="relative aspect-[3/2] overflow-hidden rounded-[var(--radius-lg)]">
               <Image
-                src={images.freshMarket}
-                alt="Fresh vegetables at a Smile market counter"
+                src="/images/our-journey.jpg"
+                alt="The Smile Hypermarket shop floor, with the branded wall between the fresh produce and grocery aisles"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"

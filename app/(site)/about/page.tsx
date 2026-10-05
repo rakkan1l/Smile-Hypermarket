@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { images } from "@/data/images";
 import { buildMetadata } from "@/lib/metadata";
 import { ImageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -15,7 +14,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Our Story",
   description: "From serving local communities in Kannur to expanding into the UAE — discover the story, values and people behind Smile Hypermarket.",
   path: "/about",
-  image: images.supermarketWide,
+  image: "/images/about-hero.jpg",
 });
 
 export default function AboutPage() {
@@ -25,8 +24,8 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="A Journey Built on Trust"
         description="From serving local communities in Kannur to expanding into the UAE, Smile continues to grow with the same promise of quality, value and care."
-        image={images.supermarketWide}
-        imageAlt="Wide view of a Smile hypermarket shop floor"
+        image="/images/about-hero.jpg"
+        imageAlt="The Smile Hypermarket team together on the shop floor"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Story" }]}
       />
 

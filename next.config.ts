@@ -25,9 +25,9 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
       {
-        // Same reasoning for the home page hero, which is also swapped in
-        // place under a stable filename.
-        source: "/images/hero.jpg",
+        // Same reasoning for the home and Our Story heroes, which are also
+        // swapped in place under stable filenames.
+        source: "/images/:name(hero|about-hero).jpg",
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
     ];

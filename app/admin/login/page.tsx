@@ -23,8 +23,17 @@ function LoginForm() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
-      // Deliberately vague: don't reveal whether the address exists.
-      setError("That email and password don't match. Please try again.");
+      // Only call it a credentials problem when the server actually said so.
+      // Anything else (a 500, a network drop) is our fault, not the user's —
+      // telling them their password is wrong sends them chasing the wrong fix.
+      const badCredentials =
+        error.status === 400 || /invalid login credentials/i.test(error.message);
+
+      setError(
+        badCredentials
+          ? "That email and password don't match. Please try again."
+          : `Sign-in is temporarily unavailable — this is a problem on our side, not your password. (${error.message})`,
+      );
       setBusy(false);
       return;
     }

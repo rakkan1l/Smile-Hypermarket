@@ -43,7 +43,15 @@ export function LeaderEditor({ initial }: { initial: Leader }) {
     const { id, ...fields } = form;
     const { error } = await createClient().from("leadership").update(fields).eq("id", id);
     if (error) { setState("error"); setError(error.message); return; }
-    await publishChanges(["/about", "/leadership"]);
+    const published = await publishChanges(["/about", "/leadership"]);
+    if (!published.ok) {
+      // The data saved, but the website is still showing the old
+      // version. Say so rather than reporting a clean success.
+      setState("error");
+      setError(`Saved, but the website did not refresh: ${published.error}`);
+      setDirty(false);
+      return;
+    }
     setState("saved");
     setDirty(false);
     router.refresh();

@@ -5,6 +5,11 @@ import { EditorialHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { LeadershipProfile } from "@/components/about/LeadershipProfile";
 
+// Content comes from the database. A short window means an admin save
+// appears right away via revalidatePath, and the page still refreshes
+// itself within a minute if that ever fails.
+export const revalidate = 60;
+
 export const metadata: Metadata = buildMetadata({
   title: "Leadership",
   description: "Meet the Chairman, Managing Director, Executive Director and Managing Partners leading Smile Hypermarket across India and the UAE.",

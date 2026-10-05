@@ -7,6 +7,11 @@ import { OutletPreview } from "@/components/home/OutletPreview";
 import { StoryPreview } from "@/components/home/StoryPreview";
 import { SocialSection } from "@/components/home/SocialSection";
 
+// Content comes from the database. A short window means an admin save
+// appears right away via revalidatePath, and the page still refreshes
+// itself within a minute if that ever fails.
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   ...buildMetadata({
     title: "Smile Hypermarket | Kannur & UAE",

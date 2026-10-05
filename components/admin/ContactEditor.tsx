@@ -55,7 +55,15 @@ export function ContactEditor({ initial }: { initial: SiteSettings }) {
       return;
     }
 
-    await publishChanges(["/contact", "/careers"]);
+    const published = await publishChanges(["/contact", "/careers"]);
+    if (!published.ok) {
+      // The data saved, but the website is still showing the old
+      // version. Say so rather than reporting a clean success.
+      setState("error");
+      setError(`Saved, but the website did not refresh: ${published.error}`);
+      setDirty(false);
+      return;
+    }
     setState("saved");
     setDirty(false);
   }

@@ -60,7 +60,15 @@ export function OutletEditor({ initial }: { initial: Outlet }) {
 
     if (error) { setState("error"); setError(error.message); return; }
 
-    await publishChanges(["/outlets", `/outlets/${form.slug}`, "/contact"]);
+    const published = await publishChanges(["/outlets", `/outlets/${form.slug}`, "/contact"]);
+    if (!published.ok) {
+      // The data saved, but the website is still showing the old
+      // version. Say so rather than reporting a clean success.
+      setState("error");
+      setError(`Saved, but the website did not refresh: ${published.error}`);
+      setDirty(false);
+      return;
+    }
     setState("saved");
     setDirty(false);
     router.refresh();

@@ -77,7 +77,15 @@ export function JobEditor({ initial, isNew }: { initial: JobDraft; isNew: boolea
       return;
     }
 
-    await publishChanges(["/careers", `/careers/${slug}`]);
+    const published = await publishChanges(["/careers", `/careers/${slug}`]);
+    if (!published.ok) {
+      // The data saved, but the website is still showing the old
+      // version. Say so rather than reporting a clean success.
+      setState("error");
+      setError(`Saved, but the website did not refresh: ${published.error}`);
+      setDirty(false);
+      return;
+    }
     setState("saved");
     setDirty(false);
     if (isNew) router.push("/admin/careers");

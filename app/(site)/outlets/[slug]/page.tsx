@@ -14,6 +14,11 @@ import { MapPanel } from "@/components/outlets/MapPanel";
 import { OutletGallery } from "@/components/outlets/OutletGallery";
 import { OutletTile } from "@/components/outlets/OutletTile";
 
+// Content comes from the database. A short window means an admin save
+// appears right away via revalidatePath, and the page still refreshes
+// itself within a minute if that ever fails.
+export const revalidate = 60;
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {

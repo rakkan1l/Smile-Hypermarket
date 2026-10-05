@@ -18,7 +18,15 @@ export function SiteImagesEditor({ initial }: { initial: { hero_image: string } 
     setError("");
     const { error } = await createClient().from("site_settings").update(form).eq("id", true);
     if (error) { setState("error"); setError(error.message); return; }
-    await publishChanges(["/"]);
+    const published = await publishChanges(["/"]);
+    if (!published.ok) {
+      // The data saved, but the website is still showing the old
+      // version. Say so rather than reporting a clean success.
+      setState("error");
+      setError(`Saved, but the website did not refresh: ${published.error}`);
+      setDirty(false);
+      return;
+    }
     setState("saved");
     setDirty(false);
   }

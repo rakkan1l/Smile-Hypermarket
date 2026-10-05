@@ -8,6 +8,11 @@ import { EditorialHero } from "@/components/ui/PageHero";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { ContactExplorer } from "@/components/contact/ContactExplorer";
 
+// Content comes from the database. A short window means an admin save
+// appears right away via revalidatePath, and the page still refreshes
+// itself within a minute if that ever fails.
+export const revalidate = 60;
+
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description: "Contact Smile Hypermarket — phone, WhatsApp, email, opening hours and directions for every outlet in India and the UAE.",

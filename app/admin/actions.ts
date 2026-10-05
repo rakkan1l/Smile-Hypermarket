@@ -4,20 +4,34 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 
 /**
- * Clears the cached public pages after an admin saves, so a change is live
- * within seconds rather than waiting for the next deploy or cache expiry.
+ * Clears the cached public pages after an admin saves.
  *
- * Guarded by the session: only a signed-in staff member can trigger it, so
- * it cannot be used to hammer the cache from outside.
+ * Revalidating the root layout invalidates every page beneath it in one go.
+ * That is deliberately broad: a save is rare and a stale page is the exact
+ * failure this exists to prevent, so correctness beats surgical precision.
+ * Public pages additionally carry a short `revalidate` window, so even if
+ * this call fails the site self-heals rather than staying stale forever.
+ *
+ * Guarded by the session so it cannot be triggered from outside.
  */
-export async function publishChanges(paths: string[]) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { ok: false as const, error: "Not signed in." };
+export async function publishChanges(paths: string[] = []) {
+  try {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return { ok: false as const, error: "Your session expired — please sign in again." };
 
-  // Always refresh the shared chrome (header/footer read site settings).
-  for (const path of new Set([...paths, "/", "/layout"])) {
-    revalidatePath(path, path === "/layout" ? "layout" : "page");
+    // Everything under the public layout, which covers the header, footer
+    // and any page that reads the same content.
+    revalidatePath("/", "layout");
+
+    // Then the specific pages, which also catches dynamic routes.
+    for (const path of new Set(paths)) revalidatePath(path);
+
+    return { ok: true as const };
+  } catch (e) {
+    return {
+      ok: false as const,
+      error: e instanceof Error ? e.message : "Could not refresh the website.",
+    };
   }
-  return { ok: true as const };
 }

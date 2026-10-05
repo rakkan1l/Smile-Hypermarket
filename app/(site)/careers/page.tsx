@@ -9,6 +9,11 @@ import { ButtonLink } from "@/components/ui/Button";
 import { JobsList } from "@/components/careers/JobsList";
 import { ApplicationForm } from "@/components/careers/ApplicationForm";
 
+// Content comes from the database. A short window means an admin save
+// appears right away via revalidatePath, and the page still refreshes
+// itself within a minute if that ever fails.
+export const revalidate = 60;
+
 export const metadata: Metadata = buildMetadata({
   title: "Careers",
   description: "Join a growing team building better retail experiences across India and the UAE. View open positions at Smile Hypermarket.",

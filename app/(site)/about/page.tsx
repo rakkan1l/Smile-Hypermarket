@@ -3,9 +3,6 @@ import { images } from "@/data/images";
 import { buildMetadata } from "@/lib/metadata";
 import { ImageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Timeline } from "@/components/about/Timeline";
-import { ValuesSection } from "@/components/about/ValuesSection";
 import { LeadershipSection } from "@/components/about/LeadershipSection";
 import { ButtonLink } from "@/components/ui/Button";
 
@@ -33,14 +30,6 @@ export default function AboutPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Story" }]}
       />
 
-      <section aria-labelledby="story-heading" className="py-20 sm:py-28">
-        <Container>
-          <SectionHeading id="story-heading" eyebrow="Milestones" title="The Story Behind Every Smile" align="center" className="mb-16 lg:mb-24" />
-          <Timeline />
-        </Container>
-      </section>
-
-      <ValuesSection />
       <LeadershipSection />
 
       <section aria-label="Visit Smile" className="py-20 sm:py-28">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getOpenJobs } from "@/lib/content";
-import { images } from "@/data/images";
 import { buildMetadata } from "@/lib/metadata";
 import { ImageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -18,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Careers",
   description: "Join a growing team building better retail experiences across India and the UAE. View open positions at Smile Hypermarket.",
   path: "/careers",
-  image: images.checkout,
+  image: "/images/careers-hero.jpg",
 });
 
 export default async function CareersPage() {
@@ -29,8 +28,8 @@ export default async function CareersPage() {
         eyebrow="Careers"
         title="Build Your Future With Smile"
         description="Join a growing team building better retail experiences across India and the UAE."
-        image={images.checkout}
-        imageAlt="Smile team member serving a customer at the checkout"
+        image="/images/careers-hero.jpg"
+        imageAlt="Smile team members on the shop floor during a hiring open day"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Careers" }]}
       >
         <ButtonLink href="#positions" variant="light" size="lg" arrow>
